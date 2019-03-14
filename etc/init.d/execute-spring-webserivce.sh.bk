@@ -1,0 +1,10 @@
+#!/bin/bash
+
+REPOSITORY=/home/ec2-user/app/travis
+APPNAME=spring-webservice
+USER=ec2-user
+
+JAR_NAME=$(ls -tr $REPOSITORY/jar |grep $APPNAME | tail -n 1)
+
+echo 'Starting spring-webservice'
+/bin/su - $USER -c "java -jar $REPOSITORY/jar/$JAR_NAME &"
